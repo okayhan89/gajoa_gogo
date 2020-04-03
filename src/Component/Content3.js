@@ -17,6 +17,7 @@ import ShareIcon from '@material-ui/icons/Share';
 import MoreVertIcon from '@material-ui/icons/MoreVert';
 // import {Button} from 'reactstrap';
 import axios from 'axios';
+import Vote from './Vote';
 
 const useStyles = makeStyles((theme: Theme) =>
     createStyles({
@@ -40,6 +41,7 @@ const useStyles = makeStyles((theme: Theme) =>
         avatar: {
             backgroundColor: red[500],
         },
+        
     }),
 );
 
@@ -75,8 +77,8 @@ function Content() {
     return (
         
 
-        <Card className={classes.root}>
-
+        <Card className={classes.root} >
+            <a href="/about" >
             {/* 컨텐츠 제목 */}
             <CardHeader
                 avatar={
@@ -108,7 +110,7 @@ function Content() {
                     김태희 백억자산가 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~
                 </Typography>
             </CardContent>
-            
+            </a>
 
             {/* 아이콘 */}
             <CardActions disableSpacing>
@@ -119,7 +121,7 @@ function Content() {
                     <ShareIcon />
                 </IconButton>
             </CardActions>
-
+            
         </Card>
 
     );
