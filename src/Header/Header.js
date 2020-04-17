@@ -11,6 +11,7 @@ import {
 import Home from "../Page/Home";
 import About from "../Page/About";
 import Board from "../Page/Board";
+import SignInTest from "../Page/SignInTest";
 
 const Header = () => (
     <Router>
@@ -23,6 +24,7 @@ const Header = () => (
                         <NavLink href="/" >Home</NavLink>
                         <NavLink href="/about" >About</NavLink>
                         <NavLink href="/board" >Board</NavLink>
+                        <NavLink href="/signin" >Signin</NavLink>
                     </Nav>
                 </Navbar.Collapse>
             </Navbar>
@@ -36,6 +38,9 @@ const Header = () => (
                 </Route>
                 <Route path="/board">
                     <Board />
+                </Route>
+                <Route path="/signin">
+                    <SignInTest />
                 </Route>
             </Switch>
         </div>
