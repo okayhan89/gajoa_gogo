@@ -11,12 +11,12 @@ import Avatar from '@material-ui/core/Avatar';
 import IconButton from '@material-ui/core/IconButton';
 import Typography from '@material-ui/core/Typography';
 import { red } from '@material-ui/core/colors';
-import FavoriteIcon from '@material-ui/icons/Favorite';
-import ShareIcon from '@material-ui/icons/Share';
+//import FavoriteIcon from '@material-ui/icons/Favorite';
+//import ShareIcon from '@material-ui/icons/Share';
 // import ExpandMoreIcon from '@material-ui/icons/ExpandMore';
-import MoreVertIcon from '@material-ui/icons/MoreVert';
+//import MoreVertIcon from '@material-ui/icons/MoreVert';
 // import {Button} from 'reactstrap';
-import axios from 'axios';
+//import axios from 'axios';
 import Input from '@material-ui/core/Input';
 import RadioGroup from '@material-ui/core/RadioGroup';
 import Button from '@material-ui/core/Button';
@@ -27,12 +27,11 @@ import Grid from '@material-ui/core/Grid';
 import TextField from '@material-ui/core/TextField';
 import FormControlLabel from '@material-ui/core/FormControlLabel';
 import Checkbox from '@material-ui/core/Checkbox';
+import Container from '@material-ui/core/Container';
+import CssBaseline from '@material-ui/core/CssBaseline';
 
 const useStyles = makeStyles((theme: Theme) =>
     createStyles({
-        root: {
-            maxWidth: 1000,
-        },
         media: {
             height: 0,
             paddingTop: '56.25%', // 16:9
@@ -57,6 +56,8 @@ function BoardBody() {
 
     const classes = useStyles();
     return (
+        <Container maxWidth="lg">
+      <CssBaseline/>
         <div>
             <form>
                 <div>
@@ -115,6 +116,7 @@ function BoardBody() {
 
             </form>
         </div>
+        </Container>
     );
 
 }

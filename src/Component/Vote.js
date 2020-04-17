@@ -13,14 +13,14 @@ import FavoriteIcon from '@material-ui/icons/Favorite';
 import ShareIcon from '@material-ui/icons/Share';
 import ExpandMoreIcon from '@material-ui/icons/ExpandMore';
 import MoreVertIcon from '@material-ui/icons/MoreVert';
-
+import Container from '@material-ui/core/Container';
+import CssBaseline from '@material-ui/core/CssBaseline';
 
 const useStyles = makeStyles((theme: Theme) =>
     createStyles({
         root: {
             backgroundColor: 'blue',
             color: 'black',
-            width: '80%'
         },
         
     }),
@@ -38,36 +38,39 @@ function Vote(){
     // const classes = useStyles();
 
     return(
+        <Container maxWidth="lg">
+      <CssBaseline/>
         <div>
             <div 
-                style={{width: '1000px', backgroundColor: 'white', color: 'black'}} onClick={hi}>
+                style={{  backgroundColor: 'white', color: 'black'}} onClick={hi}>
                 title : 결혼상대로는?
             </div>
             <div
-                style={{width: '1000px', backgroundColor: 'green', color: 'black'}}>
+                style={{ backgroundColor: 'green', color: 'black'}}>
                 이미지 : 30억오나미 vs 무일푼 김태희
             </div>
             <div
-                style={{width: '1000px', backgroundColor: 'blue', color: 'black'}}>
+                style={{backgroundColor: 'blue', color: 'black'}}>
                 투표결과
             </div>
             <div
-                style={{width: '1000px', backgroundColor: 'yellow', color: 'black'}}>
+                style={{ backgroundColor: 'yellow', color: 'black'}}>
                 그래프
             </div>
             <div
-                style={{width: '1000px', backgroundColor: 'blue', color: 'black'}}>
+                style={{backgroundColor: 'blue', color: 'black'}}>
                 하트 / 댓글 / 공유하기
             </div>
             <div
-                style={{width: '1000px', backgroundColor: 'white', color: 'black'}}>
+                style={{ backgroundColor: 'white', color: 'black'}}>
                 댓글
             </div>
             <div
-                style={{width: '1000px', backgroundColor: 'yellow', color: 'black'}}>
+                style={{ backgroundColor: 'yellow', color: 'black'}}>
                 댓글 1 : 머머가 낫지
             </div>
         </div>
+        </Container>
     );
 }
 
