@@ -51,7 +51,20 @@ class Content extends Component {
     console.log('constructor');
     super(props);
     this.state = { data: [] }
-    // makeStyles();
+    makeStyles();
+
+    this.state = {
+      contactData: [
+        { name: "Abet", phone: "010-0000-0001" },
+        { name: "Betty", phone: "010-0000-0002" },
+        { name: "Charlie", phone: "010-0000-0003" },
+        { name: "David", phone: "010-0000-0004" }
+      ],
+      contactData1: [
+        { title: "title", thumbnail: "http://down.humoruniv.org/hwiparambbs/data/pdswait/a_wd03149001_a714a238ff34ca8f788377b3aca092e6b9bf493f.jpg" }
+      ]
+    };
+
 
   }
 
@@ -60,64 +73,81 @@ class Content extends Component {
 
   componentDidMount() {
     console.log("componentDidMount");
-    this.titlefn();
+    this.info();
   }
 
-  titlefn = async () => {
-    console.log("titlefn");
-    var response = await axios.get('http://198.13.47.188:8080/v1/card/')
-      .catch(function (error) {
-        console.log('Network Error');
-      });
+
+  info = async () => {
+    console.log("info");
+    var res = await axios.get('http://198.13.47.188:8080/v1/card/')
+    .catch(function (error) {
+      console.log('Network Error');
+    });
+    
+    var tmparr= [];
+    var tmpobj = {};
+    for(var a = 0 ; a < res.data.length ; a++ ){
+      tmpobj = {'title': res.data[a].subject, 'thumbnail': res.data[a].thumbnail  };
+      // tmpobj1 = {'thumbnail': res.data[a].thumbnail };
+      tmparr.push(tmpobj);
+    }
     this.setState({
-      ...this.state,
-      title: (response == null ? 'Title' : response.data[0].subject),
+      contactData1:tmparr
     });
 
-    console.log(response);
-    console.log(response.data[1]);
   }
-
 
   render() {
     console.log('render');
 
-    // const classes = 'hi this is classes';
-    // console.log(classes);
-
-
-    // const classes = useStyles();
-    // const [expanded, setExpanded] = React.useState(false);
-
-    // const handleExpandClick = () => {
-    //     setExpanded(!expanded);
-    // };
-
-
-
     return (
       <Container maxWidth="lg">
         <CssBaseline />
+        <ul>
+          {this.state.contactData1.map((contact, i) => {
+            return (<CardInfo title={contact.title}
+              thumbnail={contact.thumbnail}
+              key={i}
+            />);
+          })}
+        </ul>
+      </Container>
+    );
+  }
+}
+
+export default Content;
+
+
+class CardInfo extends React.Component {
+  
+  render() {
+    
+    return (
+
+      <Container maxWidth="lg">
         <Card  >
           {/* 컨텐츠 제목 */}
+
+          <li>{this.props.title}</li>
+
           <CardHeader
-            
+
             action={
               <IconButton aria-label="settings">
                 <MoreVertIcon />
               </IconButton>
             }
-            title={this.state.title}
+            title={this.props.title}
+            // title={this.props.title}
             subheader="누구랑 사귈레? 2020.02.21"
           />
 
-
           {/* 컨텐츠 이미지 */}
           <CardMedia
-
-            //   image="/static/images/cards/paella.jpg"
-            //   image="logo192.png"
-            src="http://localhost:3000/favicon.ico"
+            style={{ paddingTop: '50.100%'}}
+            //image="http://down.humoruniv.org/hwiparambbs/data/pdswait/a_wd03149001_a714a238ff34ca8f788377b3aca092e6b9bf493f.jpg"
+            image={this.props.thumbnail}
             title="이미지 타이틀"
           />
 
@@ -140,9 +170,8 @@ class Content extends Component {
           </CardActions>
 
         </Card>
+        <hr></hr>
       </Container>
     );
   }
 }
-
-export default Content;
