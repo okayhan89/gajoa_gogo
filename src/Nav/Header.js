@@ -38,23 +38,9 @@ const useStyles = makeStyles((theme) => ({
 
 const title = "WengAl-WengAl";
 
-const sections = [
-    { title: 'Technology', url: '#' },
-    { title: 'Design', url: '#' },
-    { title: 'Culture', url: '#' },
-    { title: 'Business', url: '#' },
-    { title: 'Politics', url: '#' },
-    { title: 'Opinion', url: '#' },
-    { title: 'Science', url: '#' },
-    { title: 'Health', url: '#' },
-    { title: 'Style', url: '#' },
-    { title: 'Travel', url: '#' },
-];
-
 export default function Header(props) {
     const classes = useStyles();
 
-    const { sections } = props;
     return (
         <Router>
             <Container maxWidth="lg">
