@@ -1,5 +1,4 @@
 import React, { Component } from 'react';
-import { makeStyles } from '@material-ui/core/styles';
 import axios from 'axios';
 import CssBaseline from '@material-ui/core/CssBaseline';
 import Container from '@material-ui/core/Container';
@@ -9,10 +8,8 @@ import ContentComponent from "../Component/ContentComponent"
 class Content extends Component {
 
   constructor(props) {
-    console.log('constructor');
     super(props);
     this.state = { data: [] }
-    makeStyles();
 
     this.state = {
       contactData: [
@@ -22,8 +19,6 @@ class Content extends Component {
 
   }
 
-  componentWillMount() {
-  }
 
   componentDidMount() {
     console.log("componentDidMount");
@@ -41,9 +36,9 @@ class Content extends Component {
     var tmparr = [];
     var tmpobj = {};
 
-    if (res.data.length != 0) {
+    if (res.data.length !== 0) {
       for (var cnt = 0; cnt < res.data.length; cnt++) {
-        tmpobj = { 'title': res.data[cnt].subject, 'thumbnail': res.data[cnt].thumbnail };
+        tmpobj = { 'title': res.data[cnt].subject, 'thumbnail': res.data[cnt].thumbnail, 'id' : res.data[cnt].id };
         // tmpobj = {'title': res.data[a].subject, };
         // tmpobj1 = {'thumbnail': res.data[a].thumbnail };
         tmparr.push(tmpobj);
@@ -56,14 +51,13 @@ class Content extends Component {
   }
 
   render() {
-    console.log('render');
-
     return (
       <Container maxWidth="lg">
         <CssBaseline />  
             {this.state.contactData.map((contact, i) => {
               return (<ContentComponent title={contact.title}
                 thumbnail={contact.thumbnail}
+                id={contact.id}
                 key={i}
               />);
             })}

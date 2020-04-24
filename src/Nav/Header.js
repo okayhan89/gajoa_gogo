@@ -1,11 +1,10 @@
 import React from 'react';
 import 'bootstrap/dist/css/bootstrap.min.css';
-import { Button, Navbar, Nav, Form, NavDropdown, FormControl, NavLink } from 'react-bootstrap';
+import {  Navbar, Nav, NavLink } from 'react-bootstrap';
 import {
     BrowserRouter as Router,
     Switch,
-    Route,
-    Link
+    Route
 } from "react-router-dom";
 import { makeStyles } from '@material-ui/core/styles';
 import Toolbar from '@material-ui/core/Toolbar';
@@ -14,7 +13,7 @@ import SearchIcon from '@material-ui/icons/Search';
 import Typography from '@material-ui/core/Typography';
 import Container from '@material-ui/core/Container';
 import Home from "./Home";
-import About from "../Page/About";
+import Vote from "../Page/Vote";
 import Board from "../Page/Board";
 import SignIn from "../Page/SignIn";
 
@@ -66,7 +65,6 @@ export default function Header(props) {
                         <Navbar.Collapse id="basic-navbar-nav">
                             <Nav className="mr-auto">
                                 <NavLink href="/" >Home</NavLink>
-                                <NavLink href="/about" >About</NavLink>
                                 <NavLink href="/board" >Board</NavLink>
                                 <NavLink href="/signin" >Signin</NavLink>
                             </Nav>
@@ -79,9 +77,7 @@ export default function Header(props) {
                 <Route exact path="/">
                     <Home />
                 </Route>
-                <Route path="/about">
-                    <About />
-                </Route>
+                <Route path="/vote" component={Vote}></Route>
                 <Route path="/board">
                     <Board />
                 </Route>
