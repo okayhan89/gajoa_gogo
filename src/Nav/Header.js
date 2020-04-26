@@ -16,7 +16,7 @@ import Home from "./Home";
 import Vote from "../Page/Vote";
 import Board from "../Page/Board";
 import SignIn from "../Page/SignIn";
-
+import SignUp from "../Page/SignUp";
 
 const useStyles = makeStyles((theme) => ({
     toolbar: {
@@ -67,6 +67,7 @@ export default function Header(props) {
                                 <NavLink href="/" >Home</NavLink>
                                 <NavLink href="/board" >Board</NavLink>
                                 <NavLink href="/signin" >Signin</NavLink>
+                                <NavLink href="/signup" >Signup</NavLink>
                             </Nav>
                         </Navbar.Collapse>
                     </Navbar>
@@ -83,6 +84,9 @@ export default function Header(props) {
                 </Route>
                 <Route path="/signin">
                     <SignIn />
+                </Route>
+                <Route path="/signup">
+                    <SignUp />
                 </Route>
             </Switch>
         </Router>

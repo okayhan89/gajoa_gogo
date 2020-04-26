@@ -31,21 +31,28 @@ class Content extends Component {
     var res = await axios.get('http://198.13.47.188:8080/v1/card/')
       .catch(function (error) {
         console.log('Network Error');
+        console.log(error);
+        
       });
 
+      console.log(res);
     var tmparr = [];
     var tmpobj = {};
-
-    if (res.data.length !== 0) {
-      for (var cnt = 0; cnt < res.data.length; cnt++) {
-        tmpobj = { 'title': res.data[cnt].subject, 'thumbnail': res.data[cnt].thumbnail, 'id' : res.data[cnt].id };
-        // tmpobj = {'title': res.data[a].subject, };
-        // tmpobj1 = {'thumbnail': res.data[a].thumbnail };
-        tmparr.push(tmpobj);
-      }
-      this.setState({
-        contactData: tmparr
-      });
+    try{
+        if (res.data.length !== 0) {
+          for (var cnt = 0; cnt < res.data.length; cnt++) {
+            tmpobj = { 'title': res.data[cnt].subject, 'thumbnail': res.data[cnt].thumbnail, 'id' : res.data[cnt].id };
+            // tmpobj = {'title': res.data[a].subject, };
+            // tmpobj1 = {'thumbnail': res.data[a].thumbnail };
+            tmparr.push(tmpobj);
+          }
+          this.setState({
+            contactData: tmparr
+          });
+        }
+      
+    }catch(e){
+      console.log(e);
     }
 
   }
