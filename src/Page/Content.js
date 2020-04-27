@@ -12,7 +12,7 @@ class Content extends Component {
     this.state = { 
       data: [],
       pageNum: 1,
-      pageSize: 20,
+      pageSize: 100,
       sort: "regDate",
       url : "http://198.13.47.188:8080/agenda/api/v1/agenda?"
      }

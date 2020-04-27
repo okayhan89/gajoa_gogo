@@ -22,10 +22,11 @@ class CreateContent extends React.Component {
         this.state = {
             category: 'test',
             contents: 'test',
-            subject: 'test',
+            subject: '테스트제목',
             register: 'test',
             versus1: 'test',
-            versus2: 'test'
+            versus2: 'test',
+            thumbnail: 'http://blog.jinbo.net/attach/615/200937431.jpg'
         }
         this.handleFormSubmit = this.handleFormSubmit.bind(this);
         this.handleValueChange = this.handleValueChange.bind(this)
@@ -42,6 +43,7 @@ class CreateContent extends React.Component {
             register: 'test',
             versus1: 'test',
             versus2: 'test',
+            thumbnail: this.state.thumbnail
         }).then(response => {
             console.log('response', JSON.stringify(response, null, 2))
         }).catch(error => { console.log('failed', error) })
@@ -61,6 +63,7 @@ class CreateContent extends React.Component {
                 <div >
                     <form onSubmit={this.handleFormSubmit}>
                         테스트 제목: <input type="text" name="subject" value={this.state.subject} onChange={this.handleValueChange} /><br />
+                        썸네일 url: <input type="text" name="thumbnail" value={this.state.thumbnail} onChange={this.handleValueChange} /><br />
                         <button type="submit">게시글추가</button>
                     </form>
                 </div>
