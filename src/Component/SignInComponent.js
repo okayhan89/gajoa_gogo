@@ -15,18 +15,6 @@ import Container from '@material-ui/core/Container';
 import Card from '@material-ui/core/Card';
 import CardContent from '@material-ui/core/CardContent';
 
-function Copyright() {
-    return (
-        <Typography variant="body2" color="textSecondary" align="center">
-            {'Copyright © '}
-            <Link color="inherit" href="https://material-ui.com/">
-                GaJoA
-      </Link>{' '}
-            {new Date().getFullYear()}
-            {'.'}
-        </Typography>
-    );
-}
 
 const useStyles = makeStyles((theme) => ({
     paper: {
@@ -114,12 +102,12 @@ export default function SignInComponent() {
                             </Grid>
                         </form>
                     </div>
-                    <Box mt={8}>
-                        <Copyright />
-                    </Box>
+                   
                 </Container>
             </CardContent>
         </Card>
         </Container>
     );
 }
+
+
