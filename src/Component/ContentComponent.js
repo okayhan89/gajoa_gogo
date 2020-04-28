@@ -7,6 +7,12 @@ import CardActions from '@material-ui/core/CardActions';
 import IconButton from '@material-ui/core/IconButton';
 import Typography from '@material-ui/core/Typography';
 import FavoriteIcon from '@material-ui/icons/Favorite';
+import Visibility from '@material-ui/icons/Visibility';
+import ThumbDown from '@material-ui/icons/ThumbDown';
+import ThumbUp from '@material-ui/icons/ThumbUp';
+import ThumbDownOutlined from '@material-ui/icons/ThumbDownOutlined';
+import ThumbUpOutlined from '@material-ui/icons/ThumbUpOutlined';
+
 import ShareIcon from '@material-ui/icons/Share';
 import MoreVertIcon from '@material-ui/icons/MoreVert';
 import CardActionArea from '@material-ui/core/CardActionArea';
@@ -29,7 +35,9 @@ class ContentComponent extends React.Component {
 
     }
     
-
+    handlethumbUp(){
+        console.log("handlethumbUp");
+    }
     
 
     render() {
@@ -82,11 +90,17 @@ class ContentComponent extends React.Component {
                 {/* 아이콘 */}
                 <CardActions disableSpacing>
                     <IconButton aria-label="add to favorites">
-                        <FavoriteIcon > </FavoriteIcon>
+                        <ThumbUpOutlined onClick={this.handlethumbUp}/>
                     </IconButton>
+                      <div>{this.props.likeIt}</div>
                     <IconButton aria-label="share">
-                        <ShareIcon />
+                        <ThumbDownOutlined />
                     </IconButton>
+                        <div>{this.props.dislikeIt}</div>
+                    <IconButton aria-label="share">
+                        <Visibility/>
+                    </IconButton>
+                        <div>{this.props.hitCount}</div>
                 </CardActions>
             </Card >
   

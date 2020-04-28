@@ -57,7 +57,13 @@ class Content extends Component {
     try {
       if (res.data.length !== 0) {
         for (var cnt = 0; cnt < res.data.length; cnt++) {
-          tmpobj = { 'title': res.data[cnt].subject, 'thumbnail': res.data[cnt].thumbnail, 'id': res.data[cnt].id };
+          tmpobj = { 'title': res.data[cnt].subject, 
+          'thumbnail': res.data[cnt].thumbnail, 
+          'id': res.data[cnt].id,
+          'hitCount': res.data[cnt].hitCount, 
+          'likeIt': res.data[cnt].likeIt, 
+          'dislikeIt': res.data[cnt].dislikeIt 
+        };
           // tmpobj = {'title': res.data[a].subject, };
           // tmpobj1 = {'thumbnail': res.data[a].thumbnail };
           tmparr.push(tmpobj);
@@ -81,6 +87,9 @@ class Content extends Component {
           return (<ContentComponent title={contact.title}
             thumbnail={contact.thumbnail}
             id={contact.id}
+            hitCount={contact.hitCount}
+            likeIt={contact.likeIt}
+            dislikeIt={contact.dislikeIt}
             key={i}
           />);
         })}
