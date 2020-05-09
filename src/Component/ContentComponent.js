@@ -90,11 +90,11 @@ class ContentComponent extends React.Component {
                 {/* 아이콘 */}
                 <CardActions disableSpacing>
                     <IconButton aria-label="add to favorites">
-                        <ThumbUpOutlined onClick={this.handlethumbUp}/>
+                        <ThumbUp onClick={this.handlethumbUp} color="disabled"/>
                     </IconButton>
                       <div>{this.props.likeIt}</div>
                     <IconButton aria-label="share">
-                        <ThumbDownOutlined />
+                        <ThumbDown color="disabled" />
                     </IconButton>
                         <div>{this.props.dislikeIt}</div>
                     <IconButton aria-label="share">
