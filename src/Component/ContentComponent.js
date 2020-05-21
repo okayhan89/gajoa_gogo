@@ -82,7 +82,7 @@ class ContentComponent extends React.Component {
                 {/* 컨텐츠 설명 */}
                 <CardContent>
                     <Typography variant="body2" color="textSecondary" component="p">
-                        간단한 컨텐츠 설명
+                        간단한 컨텐츠 설명11
                      </Typography>
                 </CardContent>
                 </CardActionArea>

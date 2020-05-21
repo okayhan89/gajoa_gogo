@@ -50,7 +50,7 @@ export default function SignInComponent() {
                             <LockOutlinedIcon />
                         </Avatar>
                         <Typography component="h1" variant="h5">
-                            Sign in
+                            GaJoA 로그인
                        </Typography>
                         <form className={classes.form} noValidate>
                             <TextField
