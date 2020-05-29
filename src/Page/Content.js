@@ -3,7 +3,7 @@ import axios from 'axios';
 import CssBaseline from '@material-ui/core/CssBaseline';
 import Container from '@material-ui/core/Container';
 import ContentComponent from "../Component/ContentComponent"
-
+import Card from '@material-ui/core/Card';
 
 class Content extends Component {
 
@@ -32,7 +32,7 @@ class Content extends Component {
 
 
   info = async () => {
-    console.log("info");
+    console.log("Content info");
     
     //URL 초기화
     this.state.pageNum = 0
