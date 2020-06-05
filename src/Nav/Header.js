@@ -17,11 +17,30 @@ import Vote from "../Page/Vote";
 import Board from "../Page/Board";
 import SignIn from "../Page/SignIn";
 import SignUp from "../Page/SignUp";
+import LoginControl from "../Page/LoginControl";
 import CreateContent from '../Page/CreateContent';
 import PersonIcon from '@material-ui/icons/Person';
 import axios from 'axios';
+import Dropdown from 'react-dropdown'
+import 'react-dropdown/style.css'
+import Hidden from '@material-ui/core/Hidden';
 
-
+const options = [
+    { value: 'one', label: 'One' },
+    { value: 'two', label: 'Two', className: 'myOptionClassName' },
+    {
+     type: 'group', name: 'group1', items: [
+       { value: 'three', label: 'Three', className: 'myOptionClassName' },
+       { value: 'four', label: 'Four' }
+     ]
+    },
+    {
+     type: 'group', name: 'group2', items: [
+       { value: 'five', label: 'Five' },
+       { value: 'six', label: 'Six' }
+     ]
+    }
+  ]
 class Header extends React.Component {
 
 
@@ -38,23 +57,29 @@ class Header extends React.Component {
 
         console.log("로그인 버튼 클릭");
         //로그인 되었을 경우
-        // this.state={
-        //     id: "yeobi",
-        //     email: "yeobi@test.co.kr" 
-        // }
+        this.state={
+            id: "yeobi",
+            email: "yeobi@test.co.kr" ,
+            islogin: true
+        }
         
         //비로그인일 경우
-        this.state={
-            id: "로그인",
-            email: "" ,
-            icon : "<PersonIcon></PersonIcon>"
-        }
+        // this.state={
+        //     id: "로그인",
+        //     email: "" ,
+        //     islogin: false
+        // }
       
         
     }
 
+    handleloginpopup (){
+        console.log("handleloginpopup");
+        alert("handleloginpopup");
+    }
+
     render() {
-        let test = "<b><PersonIcon/></b>";
+
         return (
             <Router>
                 <Container maxWidth="lg">
@@ -72,8 +97,16 @@ class Header extends React.Component {
                         <IconButton>
                             <NavLink href="/signin" >
                                 {/* <PersonIcon></PersonIcon> */}
-                                <Button>{this.state.id}</Button>
+                                {/*<Button>{this.state.id}</Button>*/}
                                 {/* <div dangerouslySetInnerHTML={ {__html: this.state.id }}></div> */}
+                                {this.state.islogin==false &&
+                                    <PersonIcon></PersonIcon>
+                                } 
+                                {this.state.islogin==true &&
+                                    <div>
+                                    <div onClick={this.handleloginpopup}>로그인1됨.</div>
+                                    </div>
+                                } 
                             </NavLink>
                         </IconButton>
                     </Toolbar>
@@ -107,6 +140,9 @@ class Header extends React.Component {
                     </Route>
                     <Route path="/signup">
                         <SignUp />
+                    </Route>
+                    <Route path="/login">
+                        <LoginControl />
                     </Route>
                     <Route path="/createContent">
                         <CreateContent />
