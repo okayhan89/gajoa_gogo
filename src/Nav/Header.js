@@ -25,61 +25,17 @@ import Dropdown from 'react-dropdown'
 import 'react-dropdown/style.css'
 import Hidden from '@material-ui/core/Hidden';
 
-const options = [
-    { value: 'one', label: 'One' },
-    { value: 'two', label: 'Two', className: 'myOptionClassName' },
-    {
-     type: 'group', name: 'group1', items: [
-       { value: 'three', label: 'Three', className: 'myOptionClassName' },
-       { value: 'four', label: 'Four' }
-     ]
-    },
-    {
-     type: 'group', name: 'group2', items: [
-       { value: 'five', label: 'Five' },
-       { value: 'six', label: 'Six' }
-     ]
-    }
-  ]
 class Header extends React.Component {
-
-
     constructor(props) {
         super(props);
         this.state = { 
           url : "http://198.13.47.188:8080/agenda/api/v1/agenda?"
+          
          }
-        this.handleLogin();
+        this.state = {isLoggedIn: false}
       }
-    
-
-    handleLogin = async () => { 
-
-        console.log("로그인 버튼 클릭");
-        //로그인 되었을 경우
-        this.state={
-            id: "yeobi",
-            email: "yeobi@test.co.kr" ,
-            islogin: true
-        }
-        
-        //비로그인일 경우
-        // this.state={
-        //     id: "로그인",
-        //     email: "" ,
-        //     islogin: false
-        // }
-      
-        
-    }
-
-    handleloginpopup (){
-        console.log("handleloginpopup");
-        alert("handleloginpopup");
-    }
-
     render() {
-
+        const isLoggedIn = this.state.isLoggedIn;
         return (
             <Router>
                 <Container maxWidth="lg">
@@ -95,19 +51,7 @@ class Header extends React.Component {
                             WengAl-WengAl
                     </Typography>
                         <IconButton>
-                            <NavLink href="/signin" >
-                                {/* <PersonIcon></PersonIcon> */}
-                                {/*<Button>{this.state.id}</Button>*/}
-                                {/* <div dangerouslySetInnerHTML={ {__html: this.state.id }}></div> */}
-                                {this.state.islogin==false &&
-                                    <PersonIcon></PersonIcon>
-                                } 
-                                {this.state.islogin==true &&
-                                    <div>
-                                    <div onClick={this.handleloginpopup}>로그인1됨.</div>
-                                    </div>
-                                } 
-                            </NavLink>
+                            <LoginControl isLoggedIn={isLoggedIn}></LoginControl>
                         </IconButton>
                     </Toolbar>
 
@@ -135,8 +79,8 @@ class Header extends React.Component {
                     <Route path="/board">
                         <Board />
                     </Route>
-                    <Route path="/signin">
-                        <SignIn />
+                    <Route path="/signin" component={SignIn}>
+                        
                     </Route>
                     <Route path="/signup">
                         <SignUp />

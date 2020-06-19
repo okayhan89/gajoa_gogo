@@ -18,7 +18,58 @@ import CardContent from '@material-ui/core/CardContent';
 
 class SignIn extends React.Component {
 
+  constructor(props) {
+    console.log("sigIN----");
+    super(props);
+    console.log(props);
+    console.log(props.handleLoginClick);
+    // this.handleLoginClick = this.handleLoginClick.bind(this);
+    // console.log(this.props.location.state.isLoggedIn);
+    // this.handleLogin = this.handleLogin.bind(this);
+    
+    // this.state = {isLoggedIn: props.location.state.isLoggedIn};
+    // this.props.componentDidMount = this.componentDidMount.bind(this);
+    // this.state = {isLoggedIn: props.isLoggedIn};
+    // console.log("signIn is login ? : "+ props.isLoggedIn);
+  }
+
+  test(){
+    console.log("test ch");
+    // console.log(this.props);
+  }
+
+  componentDidMount(){
+    console.log("SignIn componentDidMount");
+    // con
+    // this.handleLogin();
+  }
+
+  componentWillMount(){
+    console.log("SignIn componentWillMount");
+}
+
+  handleLogin(){
+    // this.state.isLoggedIn = true;
+    // console.log(this.props.history.location.state.isLoggedIn);
+    console.log("handleLogin");
+    console.log(this.state);
+    // console.log(this.state.isLoggedIn);
+    this.setState({isLoggedIn: true});
+    // console.log(this.state.isLoggedIn);
+    // this.props.location.state.isLoggedIn = true;
+    console.log(this.state);
+    // this.state.isLoggedIn = true;
+    // console.log(this.state.isLoggedIn);
+    // console.log(this.props.test);
+    // console.log(this.props);
+    //this.props.componentDidMount();
+    // window.location.reload(false);
+  }
+
   render() {
+    // const isLoggedIn = this.state.isLoggedIn;
+    // console.log(this.props.history.location.state.isLoggedIn);
+    // console.log(this.props.location.state.isLogged);
     return (
       <Container maxWidth="lg">
         <Card>
@@ -29,6 +80,8 @@ class SignIn extends React.Component {
                 <Avatar>
                   <LockOutlinedIcon />
                 </Avatar>
+                <button onClick={this.props.test}>hihi</button>
+                <button onClick={this.props.handleLoginClick}>handleLogin</button>
                 <Typography component="h1" variant="h5">
                   GaJoA 로그인
                        </Typography>
@@ -64,6 +117,7 @@ class SignIn extends React.Component {
                     fullWidth
                     variant="contained"
                     color="primary"
+                    onClick={this.handleLogin}
                   >
                     Sign In
                            </Button>
